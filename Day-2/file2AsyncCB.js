@@ -1,5 +1,5 @@
 const fs=require('node:fs');
-const myReadFile=require('./file1.js');
+const myReadFile=require('./file1AsyncCB.js');
 myReadFile();
 console.log("middle");
 myReadFile();
