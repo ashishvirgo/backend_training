@@ -23,7 +23,17 @@ const myWriteFile=async(mydata)=>{
       return false;
     }
   };
+  const createNewId=(arr)=>{
+       const arrLength=arr.length;
+       if(arrLength>0){
+        const lastItem=arr[arrLength-1];
+        const lastItemId=lastItem.id;
+        return lastItemId+1;
+       }
+       return 1;
+  }
   module.exports={
     myReadFile,
     myWriteFile,
+    createNewId,
   }
