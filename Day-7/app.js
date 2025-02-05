@@ -1,11 +1,18 @@
 const express = require("express")
-const db=require('./config/dbconfig')
+const cors = require("cors")
+const db=require('./config/dbconfig.js')
 const Product=require('./models/productModel.js')
 const app = express();
+// app.use((req,res,next)=>{
+//     console.log('---->req.url',req.url);
+//     next();
+// })
+app.use(cors({origin: "http://localhost:5173"}))
 app.use(express.json());
 app.get('/api/v1/products', async (req, res) => {
     try{
-        const {q="",size = 1,page = 1}=req.query;
+        console.log("Ashuish")
+        const {q="",size = 10,page = 1,fields="-__v -createdAt -updatedAt"}=req.query;
         console.log("query=",q);
     const productQuery= Product.find();
     if(q.length>0){
@@ -17,6 +24,7 @@ app.get('/api/v1/products', async (req, res) => {
     const productQueryClone=productQuery.clone();
     productQuery.skip((page-1)* size)
     productQuery.limit(size)
+    productQuery.select(fields)
     const products=await productQuery;
     const totalProducts=await productQueryClone.countDocuments();
     res.status(200);

@@ -1,0 +1,13 @@
+nav{
+    background-color: gold;
+    color: black;
+    
+}
+ul{
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+}
+li a{
+    text-decoration: none;
+}
