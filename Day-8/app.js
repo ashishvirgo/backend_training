@@ -182,7 +182,9 @@ app.post("/api/v1/otps", async (req, res) => {
 app.post("/api/v1/login",async(req,res)=>{
     try{
       const {email:newEmail,password:plainPassword}=req.body;
+      console.log("Email=",newEmail);
       const currentUser=await User.findOne({email: newEmail});
+      console.log("Current User=",currentUser)
       if(currentUser)
       {
         const {_id,name,password: hashedPassword}=currentUser;
