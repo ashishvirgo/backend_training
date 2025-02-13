@@ -2,7 +2,8 @@ const LoginPage = () => {
   async function handleLogin(e){
     try{
      e.preventDefault();
-     const {email,password}=e.target;
+     const email=e.target.email.value;
+     const password=e.target.password.value;
      const res=await fetch(import.meta.env.VITE_BACKEND_URL+"/api/v1/login",{
       method: "POST",
       credentials: "include",
@@ -23,11 +24,11 @@ const LoginPage = () => {
       <form onSubmit={handleLogin}>
   <div className="mb-3">
     <label className="form-label">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+    <input type="email" className="form-control" id="exampleInputEmail1" name="email"/>
     </div>
   <div className="mb-3">
     <label className="form-label">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1" />
+    <input type="password" className="form-control" id="exampleInputPassword1" name="password" />
   </div>
   <div className="mb-3 form-check">
     <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
