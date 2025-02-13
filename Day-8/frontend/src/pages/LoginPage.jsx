@@ -1,4 +1,6 @@
+import { useNavigate } from 'react-router-dom'; 
 const LoginPage = () => {
+  const navigate=useNavigate();
   async function handleLogin(e){
     try{
      e.preventDefault();
@@ -13,7 +15,12 @@ const LoginPage = () => {
       body: JSON.stringify({email,password})
      });
      const data=await res.json();
-     alert(JSON.stringify(data));
+     if (res.ok) {
+      alert("Login Successful");
+      navigate("/products"); // Redirect to the /products route
+    } else {
+      alert("Login Failed: " + data.message);
+    }
     }
     catch(err){
       alert("Login Error",err);
