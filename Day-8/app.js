@@ -181,14 +181,14 @@ app.post("/api/v1/otps", async (req, res) => {
 })
 app.post("/api/v1/login",async(req,res)=>{
     try{
-      const {email,password:plainPassword}=req.body;
-      const currentUser=await User.findOne({email: email});
+      const {email:newEmail,password:plainPassword}=req.body;
+      const currentUser=await User.findOne({email: newEmail});
       if(currentUser)
       {
         const {_id,name,password: hashedPassword}=currentUser;
         const isPasswordCorrect=await bcrypt.compare(plainPassword,hashedPassword);
         if(isPasswordCorrect){
-            const token=jwt.sign({email,
+            const token=jwt.sign({newEmail,
                 name,
                 _id
             },"this_is_a_very_long_secret_key_abcd_123",
