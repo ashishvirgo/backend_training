@@ -6,7 +6,7 @@ const SignupPage = () => {
       e.preventDefault();
       const email=e.target.email.value;
       if(!isOtpSent){
-        const resp=await fetch("http://localhost:1502/api/v1/otps",{
+        const resp=await fetch(import.meta.env.VITE_BACKEND_URL+"/api/v1/otps",{
             method: "POST",
             body: JSON.stringify({email: email}),
             headers:{
@@ -31,7 +31,7 @@ const SignupPage = () => {
             alert("password does not match");
             return;
           }
-          const resp=await fetch("http://localhost:1502/api/v1/users",{
+          const resp=await fetch(import.meta.env.VITE_BACKEND_URL+"/api/v1/users",{
             method: "POST",
             body: JSON.stringify({email,otp,password}),
             headers:{

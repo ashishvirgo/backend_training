@@ -3,7 +3,7 @@ const LoginPage = () => {
     try{
      e.preventDefault();
      const {email,password}=e.target;
-     const res=await fetch("http://localhost:1502/api/v1/login",{
+     const res=await fetch(import.meta.env.VITE_BACKEND_URL+"/api/v1/login",{
       method: "POST",
       credentials: "include",
       headers: {"Content-Type":"application/json"
