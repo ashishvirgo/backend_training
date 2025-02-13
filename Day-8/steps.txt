@@ -1,0 +1,24 @@
+-----> npm init -y
+       :: to make package.json
+-----> npm i express   
+       :: as a backend framework
+-----> npm i mongodb
+       :: as a database
+-----> npm i mongoose
+       :: as a middleman to make it easier to talk to database(ODM)
+
+       -----------------
+-----> in app.json
+   -->require express, make app, listen it to port and add success callback      
+
+
+--------------
+---> make config folder
+
+---------------
+* :: file
+# :: folder
+---------------
+* app.json
+# config 
+  * dbconfig.js
