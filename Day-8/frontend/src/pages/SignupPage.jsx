@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import { Link } from "react-router-dom";
 const SignupPage = () => {
     const [isOtpSent,setIsOtpSent]=useState(false);
     const handleSendOtp=async(e)=>{
@@ -51,6 +51,7 @@ const SignupPage = () => {
    
   return (
     <div>
+      <Link to="/login">login</Link>
       <form onSubmit={handleSendOtp}>
         <div>
         <label>Email</label>
