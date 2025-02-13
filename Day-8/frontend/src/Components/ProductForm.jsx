@@ -1,6 +1,6 @@
 const ProductForm = () => {
   const postProduct=async(dataobj)=>{
-    await fetch('http://localhost:1500/api/v1/products',{
+    await fetch(import.meta.env.VITE_BACKEND_URL+'/api/v1/products',{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
