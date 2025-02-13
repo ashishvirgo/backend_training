@@ -13,7 +13,7 @@ const app = express();
 
 app.use(cors({
     credentials: true, 
-    origin: "https://backend-training-chi.vercel.app/" }))
+    origin: "https://backend-training-chi.vercel.app/signup" }))
 
 app.use(express.json());
 
